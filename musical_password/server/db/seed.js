@@ -6,18 +6,18 @@ const saltRounds = 10;
 
 const seed = () => {
     return Promise.all([
-        ...populateUsers(),
         User.create({
             userName: 'testUser1',
-            password: bcrypt.hashSync('test1', bcrypt.genSaltSync(saltRounds))
+            password: bcrypt.hashSync('test1', bcrypt.genSaltSync(saltRounds)),
+            level: 0
         })
     ])
         .then(() => {
             return Promise.all([
-                Level.create({ value: 0, password: a }),
-                Level.create({ value: 1, password: ab }),
-                Level.create({ value: 2, password: abc }),
-                Level.create({ value: 3, password: abcd }),
+                Level.create({ value: 0, answer: "a" }),
+                Level.create({ value: 1, answer: "ab" }),
+                Level.create({ value: 2, answer: "abc" }),
+                Level.create({ value: 3, answer: "abcd" }),
             ])
         })
         .catch(err => console.error(err))

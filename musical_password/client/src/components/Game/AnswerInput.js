@@ -23,11 +23,20 @@ class GamePage extends Component {
         ev.preventDefault();
         const { levels } = this.props;
         const { name } = this.state;
-        const uAnswer = levels[user.level].answer
-        const isMatch = name === 
-        if (level) {
-            updateUser({ id, })
+        const levelAnswer = levels[user.level].answer
+        const isMatch = name === levelAnswer
+        if (isMatch) {
+            updateUser({ id })
         }
+        this.setState({ name: '' });
+    }
 
+    render() {
+        const { name } = this.state;
+        const { level } = this.props;
+        const { handleChange, onApplyAnswer } = this;
+        return (
+            
+        )
     }
 }

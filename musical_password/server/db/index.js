@@ -4,7 +4,6 @@ const User = require('./models/User');
 const Level = require('./models/Level');
 
 // ***** CHECK THIS????? 
-User.belongsTo(Level);
 Level.hasMany(User);
 
 const sync = () => {

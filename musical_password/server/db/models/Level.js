@@ -16,4 +16,4 @@ const Level = conn.define('level', {
         timestamps: false
     })
 
-module.exports = Promo;
+module.exports = Level;
