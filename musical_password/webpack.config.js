@@ -2,9 +2,10 @@ const path = require('path');
 module.exports = {
   entry: './client/src/index.js',
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
-  },
+      path: path.join(__dirname, 'dist'),
+      filename: 'bundle.js'
+    },
+  devtool: 'source-maps',
   module: {
     loaders: [
       {

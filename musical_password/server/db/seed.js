@@ -14,8 +14,8 @@ const seed = () => {
     ])
         .then(() => {
             return Promise.all([
-                Level.create({ value: 0, answer: "a" }),
-                Level.create({ value: 1, answer: "ab" }),
+                Level.create({ value: 0, answer: "ab" }),
+                Level.create({ value: 1, answer: "full" }),
                 Level.create({ value: 2, answer: "abc" }),
                 Level.create({ value: 3, answer: "abcd" }),
             ])

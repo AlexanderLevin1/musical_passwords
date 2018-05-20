@@ -8,3 +8,40 @@ body, html {
  height: 100%;
  margin: 0;
 }
+
+#body-elements {
+	margin-bottom: 80px;
+  }
+  
+  /* MARGIN STYLES */
+  .margin-t-15 {
+	margin-top: 15px;
+  }
+  
+  .margin-b-10 {
+	margin-bottom: 10px;
+  }
+  
+  .jumbotron {
+	text-align: center;
+  }
+  
+  .cardThumbnail {
+	height: 100px;
+	width: auto;
+  }
+  
+  /* LOG IN AND SIGNUP FORM */
+  .login-form {
+	margin: 0 auto;
+	text-align: center;
+	max-width: 450px;
+  }
+  
+  .help-block {
+	font-size: 12px;
+	text-align: left;
+	color: red;
+	padding-bottom: 5px;
+  }
+  

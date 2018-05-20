@@ -1,42 +1,71 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateUserOnServer} from '../../store';
+import {NextLevel} from './NextLevel';
+import { Link, Redirect } from 'react-router-dom';
 
-class GamePage extends Component {
-    constructor() {
-        super();
+class AnswerInput extends Component {
+    constructor(props) {
+        super(props);
         this.state = {
-            level: 1;
+           answer: '',
+           redirect: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.onApplyAnswer = this.onApplyAnswer.bind(this);
+        this.renderRedirect = this.renderRedirect.bind(this);
     } 
 
     handleChange(ev) {
         const { value, answer } = ev.target;
         const change = {};
-        change[name] = value;
+        change["answer"] = value;
         this.setState(change);
     }
-// Check this????
+
     onApplyAnswer(ev) {
         ev.preventDefault();
-        const { levels } = this.props;
-        const { name } = this.state;
-        const levelAnswer = levels[user.level].answer
-        const isMatch = name === levelAnswer
+        const { level } = this.props;
+        const { answer } = this.state;
+        const isMatch = answer === level.answer
         if (isMatch) {
-            updateUser({ id })
+            this.setState({ redirect: true })
         }
-        this.setState({ name: '' });
+        this.setState({ answer: 'Try Again!' });
+    }
+
+    renderRedirect() {
+        const levelId = window.location.hash.slice(2)
+        if (this.state.redirect) {
+            return <Redirect to={`nextLevel/${levelId}`}/>
+        }
     }
 
     render() {
-        const { name } = this.state;
+        const { answer, redirect } = this.state;
         const { level } = this.props;
         const { handleChange, onApplyAnswer } = this;
         return (
-            
+            <div>
+            <div>
+              <label className="font-weight-bold">Which Keys Unlock Me?</label>
+              <input
+                placeholder='Answer'
+                name='name'
+                value={answer}
+                className='form-control margin-b-10'
+                onChange={handleChange}
+              />
+              <button className='btn btn-primary' onClick={onApplyAnswer}>Submit Answer</button>
+              {this.renderRedirect()}
+            </div>
+          </div> 
         )
     }
 }
+
+const mapState = ({ levels, level }) => {
+    // const levelId = level.id
+    return { levels }
+}
+
+export default connect(mapState, null)(AnswerInput);
