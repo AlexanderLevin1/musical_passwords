@@ -4,9 +4,9 @@ var Sentiment = require('sentiment');
 var sentiment = new Sentiment();
 
 // ---- GOOGLE ---- 
-const NLP = require('google-nlp');
-const apiKey = 'AIzaSyAEsaxTmSGBE4pXdGvemsE3FfGgegK_vwU';
-let nlp = new NLP(apiKey)
+// const NLP = require('google-nlp');
+// const apiKey = 'AIzaSyAEsaxTmSGBE4pXdGvemsE3FfGgegK_vwU';
+// let nlp = new NLP(apiKey)
 
 class SentTest extends Component {
     constructor(props) {
@@ -36,7 +36,8 @@ class SentTest extends Component {
             <div>
                 <div className='jumbotron'>
                     <h1>Ready Player 1!</h1>
-                    <h2>Congratulations - Here is Your Prize!</h2>
+                    <h2>Congratulations - Your Prize is a Text Analyzer!</h2>
+                    <h3>Aren't You a Lucky Fish!</h3>
                     <br />
                 </div>
                 <div>
@@ -54,13 +55,6 @@ class SentTest extends Component {
                 </div>
                 <div>
                     <p>This is the Sentiment Score:</p>
-                     
-                    Google Sentiment: {
-                        console.log( "google", 
-                        nlp.analyzeSentiment(this.state.text)
-                    )
-                    }
-                    <br />
                     Score: {sentiment.analyze(this.state.text).score}
                     <br />
                     Comparative: {sentiment.analyze(this.state.text).comparative}
