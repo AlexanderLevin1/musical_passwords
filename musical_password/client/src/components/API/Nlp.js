@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 var Sentiment = require('sentiment');
 var sentiment = new Sentiment();
 
-// ---- GOOGLE ---- 
-// const NLP = require('google-nlp');
-// const apiKey = 'AIzaSyAEsaxTmSGBE4pXdGvemsE3FfGgegK_vwU';
-// let nlp = new NLP(apiKey)
+
 
 class SentTest extends Component {
     constructor(props) {
